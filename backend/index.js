@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser'
 
 //Utilities
 import connectDB from './config/db.js'
-
+import userRoutes from './routes/userRoutes.js'
 
 
 dotenv.config();
@@ -21,9 +21,12 @@ app.use(express.json())
 app.use(express.urlencoded({encoded:true}))
 app.use(cookieParser())
 
+
 app.use('/api/users' , userRoutes);
+
+
+
 app.listen(port, () => {
     console.log(`server running on the port ${port}`)
 })
 
-//THis is a check file
