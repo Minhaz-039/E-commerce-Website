@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser'
 //Utilities
 import connectDB from './config/db.js'
 import userRoutes from './routes/userRoutes.js'
+import categoryRoutes from './routes/categoryRoute.js'
 
 
 dotenv.config();
@@ -23,7 +24,7 @@ app.use(cookieParser())
 
 
 app.use('/api/users' , userRoutes);
-
+app.use('/api/category' , categoryRoutes );
 
 
 app.listen(port, () => {

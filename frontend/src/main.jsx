@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import Profile from './pages/User/Profile.jsx'
 import AdminRoutes from './pages/Admin/AdminRoutes.jsx'
+import CategoryList from './pages/Admin/CategoryList.jsx'
 
 
 //Private Routes
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       {/* Admin Routes */}
       <Route path='/admin' element={<AdminRoutes />} >
         <Route path="userlist" element={<UserList />} />
+        <Route path="categorylist" element={<CategoryList />} />
       </Route>
 
 
