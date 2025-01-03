@@ -33,7 +33,7 @@ const AllProducts = () => {
                                         <img
                                             src={`http://localhost:5000${product.image}`}
                                             alt={product.name}
-                                            className="w-[10rem] object-cover"
+                                            className="w-[10rem] rounded-md object-cover"
                                         />
                                         <div className="p-4 flex flex-col justify-around">
                                             <div className="flex justify-between">

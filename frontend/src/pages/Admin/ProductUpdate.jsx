@@ -8,7 +8,8 @@ import {
   useUploadProductImageMutation,
 } from "../../redux/api/productApiSlice";
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
-import { toast , ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AdminProductUpdate = () => {
   const params = useParams();
@@ -47,13 +48,19 @@ const AdminProductUpdate = () => {
       setName(productData.name);
       setDescription(productData.description);
       setPrice(productData.price);
-      setCategory(productData.category?._id);
+      setCategory(productData.category?._id || "");
       setQuantity(productData.quantity);
       setBrand(productData.brand);
-      setImage(productData.image);
+      setImage(`http://localhost:5000${productData.image}`);
       setStock(productData.countInStock || 0);
     }
   }, [productData]);
+
+  useEffect(() => {
+    if (categories?.length > 0) {
+      setCategory(categories[0]._id); // Set the first category as the default
+    }
+  }, [categories]);
 
   const uploadFileHandler = async (e) => {
     const formData = new FormData();
@@ -61,13 +68,13 @@ const AdminProductUpdate = () => {
     try {
       const res = await uploadProductImage(formData).unwrap();
       toast.success("Item added successfully", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: "top-right",
         autoClose: 2000,
       });
       setImage(res.image);
     } catch (err) {
         toast.error(`Image upload failed ${err}`, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: "top-right",
           autoClose: 2000,
         });
       }
@@ -92,12 +99,13 @@ const AdminProductUpdate = () => {
 
       if (data?.error) {
         toast.error(data.error, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: "top-right",
           autoClose: 2000,
         });
       } else {
+        
         toast.success(`Product successfully updated`, {
-          position: toast.POSITION.TOP_RIGHT,
+          position: "top-right",
           autoClose: 2000,
         });
         navigate("/admin/allproductslist");
@@ -105,7 +113,7 @@ const AdminProductUpdate = () => {
     } catch (err) {
       console.log(err);
       toast.error("Product update failed. Try again.", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: "top-right",
         autoClose: 2000,
       });
     }
@@ -120,18 +128,20 @@ const AdminProductUpdate = () => {
 
       const { data } = await deleteProduct(params._id);
       toast.success(`"${data.name}" is deleted`, {
-        position: toast.POSITION.TOP_RIGHT,
+        position: "top-right",
         autoClose: 2000,
       });
       navigate("/admin/allproductslist");
     } catch (err) {
       console.log(err);
       toast.error("Delete failed. Try again.", {
-        position: toast.POSITION.TOP_RIGHT,
+        position: "top-right",
         autoClose: 2000,
       });
     }
   };
+
+  console.log(image);
 
   return (
     <>
@@ -148,7 +158,7 @@ const AdminProductUpdate = () => {
                   src={image && (
                     <div className="text-center">
                       <img
-                        src={`http://localhost:5000${image}`} // Ensure to include the full URL
+                        src={`${image}`} // Ensure to include the full URL
                         alt="product"
                         className="block mx-auto w-full h-[40%]"
                       />
@@ -243,7 +253,7 @@ const AdminProductUpdate = () => {
                 <div>
                   <label htmlFor="">Category</label> <br />
                   <select
-                    placeholder="Choose Category"
+                    value={category}
                     className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
                     onChange={(e) => setCategory(e.target.value)}
                   >
