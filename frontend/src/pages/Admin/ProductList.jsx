@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   useCreateProductMutation,
@@ -65,6 +65,13 @@ const ProductList = () => {
       toast.error(error?.data?.message || error.error);
     }
   };
+
+  useEffect(() => {
+    if (categories?.length > 0) {
+      setCategory(categories[0]._id); // Set the first category as the default
+    }
+  }, [categories]);
+  
 
   return (
     <div className="container xl:mx-[9rem] sm:mx-[0]">
@@ -163,7 +170,8 @@ const ProductList = () => {
               <div>
                 <label htmlFor="">Category</label> <br />
                 <select
-                  placeholder="Choose Category"
+                value={category}
+                //   placeholder="Choose Category"
                   className="p-4 mb-3 w-[30rem] border rounded-lg bg-[#101011] text-white"
                   onChange={(e) => setCategory(e.target.value)}
                 >
