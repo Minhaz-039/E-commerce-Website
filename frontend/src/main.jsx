@@ -7,8 +7,11 @@ import { Provider } from 'react-redux'
 import store from './redux/store'
 import Profile from './pages/User/Profile.jsx'
 import AdminRoutes from './pages/Admin/AdminRoutes.jsx'
+import UserList from './pages/Admin/UserList.jsx'
 import CategoryList from './pages/Admin/CategoryList.jsx'
-
+import ProductList from './pages/Admin/ProductList.jsx'
+import ProductUpdate from './pages/Admin/ProductUpdate.jsx'
+import AllProducts from './pages/Admin/AllProducts.jsx'
 
 //Private Routes
 import PrivateRoutes from './components/PrivateRoutes.jsx'
@@ -17,7 +20,7 @@ import PrivateRoutes from './components/PrivateRoutes.jsx'
 // Auth
 import LogIn from './pages/Auth/LogIn.jsx'
 import Register from './pages/Auth/Register.jsx'
-import UserList from './pages/Admin/UserList.jsx'
+
 
 
 const router = createBrowserRouter(
@@ -37,6 +40,10 @@ const router = createBrowserRouter(
       <Route path='/admin' element={<AdminRoutes />} >
         <Route path="userlist" element={<UserList />} />
         <Route path="categorylist" element={<CategoryList />} />
+        <Route path="productlist" element={<ProductList />} />
+        <Route path="productlist/:pageNumber" element={<ProductList />} />
+        <Route path="allproductslist" element={<AllProducts />} />
+        <Route path="product/update/:_id" element={<ProductUpdate />} />
       </Route>
 
 
