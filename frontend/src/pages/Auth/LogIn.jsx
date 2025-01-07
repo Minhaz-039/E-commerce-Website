@@ -61,7 +61,7 @@ const LogIn = () => {
                             <input type="password" id="password" className="mt-1 p-2 border rounded w-full" value={password} onChange={e => setPassword(e.target.value)}/>
                         </div>
 
-                        <button disabled={isLoading} type = "submit" className="bg-pink-300 px-4 py-2 rounded cursor-pointer my-[1rem]">
+                        <button disabled={isLoading} type = "submit" className="bg-pink-800 px-4 py-2 rounded text-white cursor-pointer my-[1rem]">
                             {isLoading ? "Signing In..." : "Sign In"}
                         </button>
 
@@ -71,7 +71,7 @@ const LogIn = () => {
 
                     <div className="mt-4">
                         <p>
-                            New Customer ?{" "} <Link to={redirect ? `/register?redirect=${redirect}` : "/register"} className="text-pink-500 hover:underline">Register</Link>
+                            New Customer ?{" "} <Link to={redirect ? `/register?redirect=${redirect}` : "/register"} className="text-pink-800 hover:underline">Register</Link>
                         </p>
                     </div>
 
@@ -79,7 +79,7 @@ const LogIn = () => {
 
 
 
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="" className=" h-[40rem] w-[45%] xl:block md:hidden sm:hidden rounded-lg"  />
+                <img src={`http://localhost:5000/uploads/samsung.jpg`} alt="" className=" h-[40rem] mt-8 w-[45%] xl:block md:hidden sm:hidden rounded-lg"  />
 
 
             </section>

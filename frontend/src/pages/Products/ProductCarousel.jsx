@@ -35,7 +35,7 @@ const ProductCarousel = () => {
       ) : (
         <Slider
           {...settings}
-          className="xl:w-[50rem]  lg:w-[50rem] md:w-[56rem] sm:w-[40rem] sm:block"
+          className="xl:w-[28rem]  lg:w-[25rem] md:w-[20rem] sm:w-[15rem] sm:block bg-pink-50 hover:bg-pink-200 duration-300 p-4 rounded-lg"
         >
           {products.map(
             ({
@@ -55,47 +55,47 @@ const ProductCarousel = () => {
                 <img
                   src={`http://localhost:5000${image}`}
                   alt={name}
-                  className="w-full rounded-lg object-cover h-[30rem]"
+                  className="w-full rounded-lg object-cover "
                 />
 
-                <div className="mt-4 flex justify-between">
-                  <div className="one">
+                <div className="mt-4  flex justify-between">
+                  <div className="one w-1/2 font-bold text-black">
                     <h2>{name}</h2>
                     <p> $ {price}</p> <br /> <br />
-                    <p className="w-[25rem]">
-                      {description.substring(0, 170)} ...
+                    <p className="">
+                      {description.substring(0, 115)} ...
                     </p>
                   </div>
 
-                  <div className="flex justify-between w-[20rem]">
-                    <div className="one">
-                      <h1 className="flex items-center mb-6">
-                        <FaStore className="mr-2 text-white" /> Brand: {brand}
-                      </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaClock className="mr-2 text-white" /> Added:{" "}
+                  <div className="flex flex-col justify-between font-bold text-pink-800">
+                    
+                      <div className="flex items-center ">
+                        <FaStore className="mr-1 text-pink-800" /> Brand: {brand}
+                      </div>
+                      <h1 className="flex items-center ">
+                        <FaClock className="mr-1 text-pink-800" /> Added:{" "}
                         {moment(createdAt).fromNow()}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaStar className="mr-2 text-white" /> Reviews:
+                      <h1 className="flex items-center ">
+                        <FaStar className="mr-1 text-pink-800" /> Reviews:
                         {numReviews}
                       </h1>
-                    </div>
+                    
 
-                    <div className="two">
-                      <h1 className="flex items-center mb-6">
-                        <FaStar className="mr-2 text-white" /> Ratings:{" "}
+                    
+                      <h1 className="flex items-center ">
+                        <FaStar className="mr-1 text-pink-800" />{" "}
                         {Math.round(rating)}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaShoppingCart className="mr-2 text-white" /> Quantity:{" "}
+                      <h1 className="flex items-center ">
+                        <FaShoppingCart className="mr-1 text-pink-800" /> Qty {" "}
                         {quantity}
                       </h1>
-                      <h1 className="flex items-center mb-6">
-                        <FaBox className="mr-2 text-white" /> In Stock:{" "}
+                      <h1 className="flex items-center">
+                        <FaBox className="mr-1 text-pink-800" />Stock {" "}
                         {countInStock}
                       </h1>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

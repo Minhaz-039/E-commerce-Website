@@ -65,14 +65,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div>
-        <Link
-          to="/"
-          className="text-white font-semibold hover:underline ml-[10rem]"
-        >
-          Go Back
-        </Link>
-      </div>
+
 
       {isLoading ? (
         <Loader />
@@ -82,12 +75,12 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[10rem]">
-            <div>
+          <div className="flex flex-wrap mx-auto max-w-7xl relative items-between pt-[2rem] ">
+            <div className="">
               <img
                 src={`http://localhost:5000${product.image}`}
                 alt={product.name}
-                className="w-full xl:w-[50rem] lg:w-[45rem] md:w-[30rem] sm:w-[20rem] mr-[2rem]"
+                className="w-full xl:w-[30rem] lg:w-[28rem] md:w-[25rem] sm:w-[20rem] mr-[2rem]"
               />
 
               <HeartIcon product={product} />
@@ -95,7 +88,7 @@ const ProductDetails = () => {
 
             <div className="flex flex-col justify-between">
               <h2 className="text-2xl font-semibold">{product.name}</h2>
-              <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
+              <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-gray-600">
                 {product.description}
               </p>
 
@@ -104,29 +97,29 @@ const ProductDetails = () => {
               <div className="flex items-center justify-between w-[20rem]">
                 <div className="one">
                   <h1 className="flex items-center mb-6">
-                    <FaStore className="mr-2 text-white" /> Brand:{" "}
+                    <FaStore className="mr-2 text-pink-950" /> Brand:{" "}
                     {product.brand}
                   </h1>
                   <h1 className="flex items-center mb-6 w-[20rem]">
-                    <FaClock className="mr-2 text-white" /> Added:{" "}
+                    <FaClock className="mr-2 text-pink-950" /> Added:{" "}
                     {moment(product.createAt).fromNow()}
                   </h1>
                   <h1 className="flex items-center mb-6">
-                    <FaStar className="mr-2 text-white" /> Reviews:{" "}
+                    <FaStar className="mr-2 text-pink-950" /> Reviews:{" "}
                     {product.numReviews}
                   </h1>
                 </div>
 
                 <div className="two">
                   <h1 className="flex items-center mb-6">
-                    <FaStar className="mr-2 text-white" /> Ratings: {rating}
+                    <FaStar className="mr-2 text-pink-950" /> Ratings: {rating}
                   </h1>
                   <h1 className="flex items-center mb-6">
-                    <FaShoppingCart className="mr-2 text-white" /> Quantity:{" "}
+                    <FaShoppingCart className="mr-2 text-pink-950" /> Quantity:{" "}
                     {product.quantity}
                   </h1>
                   <h1 className="flex items-center mb-6 w-[10rem]">
-                    <FaBox className="mr-2 text-white" /> In Stock:{" "}
+                    <FaBox className="mr-2 text-pink-950" /> In Stock:{" "}
                     {product.countInStock}
                   </h1>
                 </div>
@@ -159,7 +152,7 @@ const ProductDetails = () => {
                 <button
                   onClick={addToCartHandler}
                   disabled={product.countInStock === 0}
-                  className="bg-pink-600 text-white py-2 px-4 rounded-lg mt-4 md:mt-0"
+                  className="bg-pink-800 text-white py-2 px-4 rounded-lg mt-4 md:mt-0"
                 >
                   Add To Cart
                 </button>
@@ -181,6 +174,16 @@ const ProductDetails = () => {
           </div>
         </>
       )}
+
+      <div className="flex justify-end px-10">
+        <Link
+          to="/"
+          className="text-white bg-pink-800 p-4 rounded-md font-semibold hover:underline ml-[10rem]"
+        >
+          Go Back
+        </Link>
+      </div>
+
     </>
   );
 };

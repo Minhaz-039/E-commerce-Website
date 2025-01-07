@@ -7,6 +7,7 @@ export const productApiSlice = apiSlice.injectEndpoints({
       query: ({ keyword }) => ({
         url: `${PRODUCT_URL}`,
         params: { keyword },
+        providesTags: ["Products"],
       }),
       keepUnusedDataFor: 5,
       providesTags: ["Products"],
