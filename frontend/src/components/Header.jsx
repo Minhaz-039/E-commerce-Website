@@ -11,24 +11,23 @@ const Header = () => {
   }
 
   if (error) {
-    return <h1>ERROR</h1>;
+    return <h1 className="text-center text-red-600 font-bold">Something went wrong. Please try again later.</h1>;
   }
 
   return (
-    <>
-      <div className="flex justify-around">
-        <div className="xl:block lg:hidden md:hidden:sm:hidden">
-          <div className="grid grid-cols-2">
-            {data.map((product) => (
-              <div key={product._id}>
-                <SmallProduct product={product} />
-              </div>
-            ))}
-          </div>
-        </div>
+    <div className="flex flex-col lg:flex-row  justify-between items-center gap-8 p-6 ">
+      {/* Small Product Grid */}
+      <div className="grid grid-cols-2 lg:w-3/5 gap-4 lg:grid-cols-2 xl:grid-cols-2 flex-1">
+        {data.map((product) => (
+          <SmallProduct key={product._id} product={product} />
+        ))}
+      </div>
+
+      {/* Carousel Section */}
+      <div className="w-full lg:w-2/5">
         <ProductCarousel />
       </div>
-    </>
+    </div>
   );
 };
 

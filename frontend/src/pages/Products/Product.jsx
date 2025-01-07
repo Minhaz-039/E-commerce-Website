@@ -4,22 +4,24 @@ import HeartIcon from "./HeartIcon";
 
 const Product = ({ product }) => {
   return (
-    <div className="w-[30rem] ml-[2rem] p-3 relative">
-      <div className="relative ">
+    <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+      {/* Image Section */}
+      <div className="relative">
         <img
           src={`http://localhost:5000${product.image}`}
           alt={product.name}
-          className="w-[30rem] rounded"
+          className="w-full h-[100px] sm:h-[200px] object-cover rounded-t-lg"
         />
         <HeartIcon product={product} />
       </div>
 
-      <div className="p-4">
+      {/* Content Section */}
+      <div className="p-2 rounded-b-lg h-fit bg-pink-200">
         <Link to={`/product/${product._id}`}>
-          <h2 className="flex justify-between items-center">
-            <div className="text-lg">{product.name}</div>
-            <span className="bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">
-              $ {product.price}
+          <h2 className="flex justify-between items-center text-sm font-normal">
+            <div className="bg-pink-200 pr-2 font-bold text-pink-800">{product.name}</div>
+            <span className="bg-pink-100 text-pink-800 text-sm font-medium px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300 flex gap-1">
+              <div>$</div> {product.price}
             </span>
           </h2>
         </Link>

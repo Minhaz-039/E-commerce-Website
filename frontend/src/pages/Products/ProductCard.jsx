@@ -18,27 +18,27 @@ const ProductCard = ({ p }) => {
   };
 
   return (
-    <div className="max-w-sm relative bg-[#1A1A1A] rounded-lg shaodw dark:bg-gray-800 dark:border-gray-700">
-      <section className="relative">
+    <div className="max-w-sm flex flex-col h-full bg-[#1A1A1A] rounded-lg  dark:bg-gray-800 dark:border-gray-700">
+      <section className="relative rounded-lg">
         <Link to={`/product/${p._id}`}>
           <span className="absolute bottom-3 right-3 bg-pink-100 text-pink-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">
             {p?.brand}
           </span>
           <img
-            className="cursor-pointer w-full"
+            className="cursor-pointer rounded-t-lg h-[200px] w-full"
             src={`http://localhost:5000${p.image}`}
             alt={p.name}
-            style={{ height: "170px", objectFit: "cover" }}
+            style={{ objectFit: "cover" }}
           />
         </Link>
         <HeartIcon product={p} />
       </section>
 
-      <div className="p-5">
-        <div className="flex justify-between">
-          <h5 className="mb-2 text-xl text-white dark:text-white">{p?.name}</h5>
+      <div className="p-5 flex flex-col justify-between flex-grow hover:bg-pink-950 duration-300 bg-[#6b1d2e] rounded-b-lg">
+        <div className="flex gap-3 flex-grow justify-between">
+          <h5 className="mb-2 text-md font-bold text-white dark:text-white">{p?.name}</h5>
 
-          <p className=" font-semibold text-pink-500">
+          <p className=" font-semibold text-center items-center align-middle text-pink-500">
             {p?.price?.toLocaleString("en-US", {
               style: "currency",
               currency: "USD",
@@ -46,7 +46,7 @@ const ProductCard = ({ p }) => {
           </p>
         </div>
 
-        <p className="mb-3 font-normal text-[#CFCFCF]">
+        <p className="mb-3 font-normal  text-[#CFCFCF]">
           {p?.description?.substring(0, 60)} ...
         </p>
 
@@ -74,7 +74,7 @@ const ProductCard = ({ p }) => {
           </Link>
 
           <button
-            className="p-2 rounded-full"
+            className="p-2 text-white rounded-full"
             onClick={() => addToCartHandler(p, 1)}
           >
             <AiOutlineShoppingCart size={25} />

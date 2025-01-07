@@ -82,7 +82,7 @@ const Navigation = () => {
                     <div className="absolute top-9">
                         {cartItems.length > 0 && (
                             <span>
-                                <span className="px-1 py-0 text-sm text-white bg-pink-500 rounded-full">
+                                <span className="px-1 py-0 text-sm text-white bg-pink-800 rounded-full">
                                     {cartItems.reduce((a, c) => a + c.qty, 0)}
                                 </span>
                             </span>
@@ -115,27 +115,27 @@ const Navigation = () => {
                         {userInfo.isAdmin && (
                             <>
                                 <li>
-                                    <Link to='/admin/dashboard' className="block px-4 py-2 hover:bg-gray-100">
+                                    <Link to='/admin/dashboard' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                         Dashboard
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/productlist' className="block px-4 py-2 hover:bg-gray-100">
+                                    <Link to='/admin/productlist' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                         Products
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/categorylist' className="block px-4 py-2 hover:bg-gray-100">
+                                    <Link to='/admin/categorylist' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                         Category
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/orderlist' className="block px-4 py-2 hover:bg-gray-100">
+                                    <Link to='/admin/orderlist' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                         Orders
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/admin/userlist' className="block px-4 py-2 hover:bg-gray-100">
+                                    <Link to='/admin/userlist' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                         Users
                                     </Link>
                                 </li>
@@ -145,12 +145,12 @@ const Navigation = () => {
 
 
                         <li>
-                            <Link to='/profile' className="block px-4 py-2 hover:bg-gray-100">
+                            <Link to='/profile' className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                 Profile
                             </Link>
                         </li>
                         <li>
-                            <Link to='/logout' onClick={logoutHandler} className="block px-4 py-2 hover:bg-gray-100">
+                            <Link to='/logout' onClick={logoutHandler} className="block px-4 py-2 rounded-md hover:text-black hover:bg-gray-100">
                                 Logout
                             </Link>
                         </li>

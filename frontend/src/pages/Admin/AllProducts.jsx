@@ -16,20 +16,20 @@ const AllProducts = () => {
 
     return (
         <>
-            <div className="container mx-[9rem]">
+            <div className="container max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row">
                     <div className="p-3">
-                        <div className="ml-[2rem] text-xl font-bold h-12">
+                        <div className="ml-[2rem] text-xl font-bold text-black h-12">
                             All Products ({products.length})
                         </div>
-                        <div className="flex flex-wrap justify-around items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-around items-center">
                             {products.map((product) => (
                                 <div
                                     key={product._id}
-                                    className="block mb-4 overflow-hidden cursor-pointer"
+                                    className="block overflow-hidden cursor-pointer"
                                     onClick={() => window.location.href = `/admin/product/update/${product._id}`} // Navigate when clicked
                                 >
-                                    <div className="flex">
+                                    <div className="flex h-full border-2 p-2 border-pink-800 rounded-md bg-pink-100 lg:h-56">
                                         <img
                                             src={`http://localhost:5000${product.image}`}
                                             alt={product.name}
@@ -37,7 +37,7 @@ const AllProducts = () => {
                                         />
                                         <div className="p-4 flex flex-col justify-around">
                                             <div className="flex justify-between">
-                                                <h5 className="text-xl font-semibold mb-2">
+                                                <h5 className="text-xl text-black font-semibold mb-2">
                                                     {product?.name}
                                                 </h5>
 
@@ -46,7 +46,7 @@ const AllProducts = () => {
                                                 </p>
                                             </div>
 
-                                            <p className="text-gray-400 xl:w-[30rem] lg:w-[30rem] md:w-[20rem] sm:w-[10rem] text-sm mb-4">
+                                            <p className="text-gray-700 flex flex-grow  text-sm mb-4">
                                                 {product?.description?.substring(0, 160)}...
                                             </p>
 
@@ -72,7 +72,7 @@ const AllProducts = () => {
                                                         />
                                                     </svg>
                                                 </Link>
-                                                <p>$ {product?.price}</p>
+                                                <p className="text-pink-800 font-bold">$ {product?.price}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@ const AllProducts = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="md:w-1/4 p-3 mt-2">
+                    <div >
                         <AdminMenu />
                     </div>
                 </div>

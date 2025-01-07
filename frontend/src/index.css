@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 body{
-    background: #0f0f10;
-    color : #fff;
+    /* background: rgba(0, 0, 0, 0.882); */
+    /* background: #f2f2f2df; */
+    background: #f0ece2;
+    color : black;
+    padding: 0px;
+    font-family :'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 input ,

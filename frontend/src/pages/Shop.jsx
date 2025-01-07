@@ -82,10 +82,10 @@ const Shop = () => {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container pl-10 mx-auto bg-[#f0ece2]">
         <div className="flex md:flex-row">
-          <div className="bg-[#151515] p-3 mt-2 mb-2">
-            <h2 className="h4 text-center py-2 bg-black rounded-full mb-2">
+          <div className="bg-[#151515] rounded-md p-3 mt-2 mb-2">
+            <h2 className="h4 text-center py-2 bg-black text-white rounded-full mb-2">
               Filter by Categories
             </h2>
 
@@ -111,7 +111,7 @@ const Shop = () => {
               ))}
             </div>
 
-            <h2 className="h4 text-center py-2 bg-black rounded-full mb-2">
+            <h2 className="h4 text-center py-2 bg-black text-white rounded-full mb-2">
               Filter by Brands
             </h2>
 
@@ -138,7 +138,7 @@ const Shop = () => {
               ))}
             </div>
 
-            <h2 className="h4 text-center py-2 bg-black rounded-full mb-2">
+            <h2 className="h4 text-center py-2 bg-black text-white rounded-full mb-2">
               Filter by Price
             </h2>
 
@@ -154,7 +154,7 @@ const Shop = () => {
 
             <div className="p-5 pt-0">
               <button
-                className="w-full border my-4"
+                className="w-full border rounded-md p-2 text-white my-4"
                 onClick={() => window.location.reload()}
               >
                 Reset
@@ -163,13 +163,13 @@ const Shop = () => {
           </div>
 
           <div className="p-3">
-            <h2 className="h4 text-center mb-2">{products?.length} Products</h2>
-            <div className="flex flex-wrap">
+            <h2 className="py-1 rounded-lg text-center text-white font-bold bg-pink-900 mb-2">{products?.length} Products</h2>
+            <div className="grid grid-cols-2 gap-1 md:grid-cols-3 lg:grid-cols-4">
               {products.length === 0 ? (
                 <Loader />
               ) : (
                 products?.map((p) => (
-                  <div className="p-3" key={p._id}>
+                  <div className="p-2 " key={p._id}>
                     <ProductCard p={p} />
                   </div>
                 ))

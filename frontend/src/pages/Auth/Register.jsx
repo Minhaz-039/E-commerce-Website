@@ -1,6 +1,6 @@
-import { useState , useEffect } from "react";
-import { Link , useLocation , useNavigate } from "react-router-dom";
-import { useDispatch , useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
 import { setCredientials } from "../../redux/features/auth/authSlice";
 import { toast } from "react-toastify";
@@ -9,39 +9,39 @@ import { useRegisterMutation } from "../../redux/api/userApiSlice";
 
 const Register = () => {
 
-    const [ username , setUsername ] = useState('');
-    const [ email , setEmail ] = useState('');
-    const [ password , setPassword ] = useState('');
-    const [ confirmPassword , setConfirmPassword ] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [register , { isLoading }] = useRegisterMutation();
-    const {userInfo} = useSelector(state => state.auth);
+    const [register, { isLoading }] = useRegisterMutation();
+    const { userInfo } = useSelector(state => state.auth);
 
-    const {search} = useLocation();
+    const { search } = useLocation();
     const sp = new URLSearchParams(search);
     const redirect = sp.get('redirect') || '/';
 
     useEffect(() => {
-        if(userInfo){
+        if (userInfo) {
             navigate(redirect);
         }
-    },[navigate , redirect , userInfo]);
+    }, [navigate, redirect, userInfo]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        if(password != confirmPassword){
+        if (password != confirmPassword) {
             toast.error('Passwords do not match');
-        }else{
-            try{
-                const res = await register({username , email , password}).unwrap()
-                dispatch(setCredientials({...res}));
+        } else {
+            try {
+                const res = await register({ username, email, password }).unwrap()
+                dispatch(setCredientials({ ...res }));
                 navigate(redirect);
                 toast.success('Registered Successfully');
-            }catch(error){
+            } catch (error) {
                 console.log(error);
                 toast.error(error?.data?.message || error.message);
             }
@@ -51,8 +51,8 @@ const Register = () => {
 
 
     return (
-        <section className="pl-[10rem] flex flex-wrap">
-            <div className="mr-[4rem] mt-[5rem]">
+        <section className="pl-28 flex gap-3">
+            <div className=" mt-[5rem]">
                 <h1 className="text-2xl font-semibold mb-4">Register</h1>
                 <form onSubmit={submitHandler} className="container w-[40rem]" action="">
                     <div className="my-[2rem]">
@@ -78,7 +78,7 @@ const Register = () => {
                         <input type="password" id="confirmPassword" className="mt-1 p-2 border rounded w-full" placeholder="Enter your name" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
                     </div>
 
-                    <button disabled={isLoading} type="submit" className="bg-pink-500 px-4 py-2 rounded cursor-pointer my-[1rem] text-white">
+                    <button disabled={isLoading} type="submit" className="bg-pink-800 px-4 py-2 rounded cursor-pointer my-[1rem] text-white">
                         {isLoading ? 'Registering...' : 'Register'}
                     </button>
 
@@ -90,7 +90,7 @@ const Register = () => {
                 <div className="mt-4">
                     <p>
                         Already have an account? {""}
-                        <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} className="text-pink-500 hover:underline">Login</Link>
+                        <Link to={redirect ? `/login?redirect=${redirect}` : "/login"} className="text-pink-800 hover:underline">Login</Link>
                     </p>
                 </div>
 
@@ -98,7 +98,9 @@ const Register = () => {
             </div>
 
 
-            <img src="https://i.postimg.cc/T38VKvtX/img1.avif" alt="" className=" h-[40rem] w-[45%] xl:block md:hidden sm:hidden rounded-lg" />
+            <div className="flex justify-center items-center p-6">
+                <img src={`http://localhost:5000/uploads/register2.jpg`} alt="" className=" xl:block md:hidden sm:hidden rounded-lg " />
+            </div>
 
 
         </section>
