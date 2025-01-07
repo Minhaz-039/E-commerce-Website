@@ -29,10 +29,10 @@ const ProductTabs = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col md:flex-row text-white">
       <section className="mr-[5rem]">
         <div
-          className={`flex-1 p-4 cursor-pointer text-lg ${
+          className={`flex-1 p-4 cursor-pointer text-lg text-black ${
             activeTab === 1 ? "font-bold" : ""
           }`}
           onClick={() => handleTabClick(1)}
@@ -40,7 +40,7 @@ const ProductTabs = ({
           Write Your Review
         </div>
         <div
-          className={`flex-1 p-4 cursor-pointer text-lg ${
+          className={`flex-1 p-4 cursor-pointer text-black text-lg ${
             activeTab === 2 ? "font-bold" : ""
           }`}
           onClick={() => handleTabClick(2)}
@@ -48,7 +48,7 @@ const ProductTabs = ({
           All Reviews
         </div>
         <div
-          className={`flex-1 p-4 cursor-pointer text-lg ${
+          className={`flex-1 p-4 cursor-pointer text-black text-lg ${
             activeTab === 3 ? "font-bold" : ""
           }`}
           onClick={() => handleTabClick(3)}
@@ -64,7 +64,7 @@ const ProductTabs = ({
             {userInfo ? (
               <form onSubmit={submitHandler}>
                 <div className="my-2">
-                  <label htmlFor="rating" className="block text-xl mb-2">
+                  <label htmlFor="rating" className="block text-black text-xl mb-2">
                     Rating
                   </label>
 
@@ -85,7 +85,7 @@ const ProductTabs = ({
                 </div>
 
                 <div className="my-2">
-                  <label htmlFor="comment" className="block text-xl mb-2">
+                  <label htmlFor="comment" className="block text-black text-xl mb-2">
                     Comment
                   </label>
 
